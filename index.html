@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Library</title>
+  <style>
+    .list{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .list li{
+      box-sizing: border-box;
+      width: 33%;
+      outline: 2px solid #ccc;
+      margin-bottom: 20px;
+      padding: 20px;
+      list-style: none;
+    }
+    .list li div{
+      float: left;
+    }
+    img{
+      float: right;
+    }
+    @media(max-width: 1000px){
+      .list li{
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <ul class="list"></ul>
+  <div id='bookTemplate' type='text/template'>
+    <h3 class="title"><%= id %></h3>
+    <div class="description">
+      <p class="release-date"><%= title %></p>
+      <p><%= type %></p>
+    </div>
+  </div>
+
+
+</body>
+</html>
