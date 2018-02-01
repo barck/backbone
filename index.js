@@ -35,29 +35,25 @@ const Library = Backbone.Collection.extend({
 var Router = Backbone.Router.extend({
     routes: {
         "": "index",
-        "book": "book",
-
+        "books/:id": "books"
     },
-
     index: function () {
        console.log("index")
     },
-
-    book: function () {
-        console.log("book");
+    books: function (id) {
+        console.log("books/" + id);
         $(".list-item").hide();
-    },
-
+        $(".book").append("Страница книжки " + id)
+    }
 });
 
-new Router(); // создаем роутер
+new Router(); // создаем экземпляр роутера
 Backbone.history.start();  // Запускаем HTML5 History push
+// Backbone.history.start({pushState: true});       как это работает?
 
 
 window.library = new Library();
-
 window.library.on('add', (model) => {(new LinkView({model:model})).render().$el.appendTo('.list')});
-
 window.library.fetch({ url: '/data.json' });
 
 

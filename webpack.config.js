@@ -17,7 +17,9 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './data.json', to: 'data.json' },
       { from: './img', to: 'img' },
-        { from: './book.html', to: 'book.html' }
+      { from: './style.css', to: 'style.css' },
+      { from: './book.html', to: 'book.html' },
+      { from: './favicon.ico', to: 'favicon.ico' }
     ]),
     new HtmlWebpackPlugin({
       template: './index.html'
