@@ -3,6 +3,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import template from "./book.html";
 
+//создаем модель данных
 const LinkModel = Backbone.Model.extend({
     pathGenerator: function() {
         this.set("imgPath", (this.get("imgLink") + '.jpg'));
@@ -12,6 +13,7 @@ const LinkModel = Backbone.Model.extend({
     }
 });
 
+//создаем вьюху
 const LinkView = Backbone.View.extend({
   initialize: function() {
       this.model.pathGenerator()
@@ -24,28 +26,38 @@ const LinkView = Backbone.View.extend({
   }
 });
 
+//создаем коллекцию экземпляров модели
 const Library = Backbone.Collection.extend({
   model: LinkModel
 });
 
-const Router = Backbone.Router.extend({
-    initialize: function () {
+
+var Router = Backbone.Router.extend({
+    routes: {
+        "": "index",
+        "book": "book",
 
     },
-   routes: {
-       '': 'index'
-   },
+
     index: function () {
-        console.log('index')
-    }
+       console.log("index")
+    },
+
+    book: function () {
+        console.log("book");
+        $(".list-item").hide();
+    },
+
 });
 
-new Router();
+new Router(); // создаем роутер
+Backbone.history.start();  // Запускаем HTML5 History push
 
-Backbone.history.start();
 
 window.library = new Library();
+
 window.library.on('add', (model) => {(new LinkView({model:model})).render().$el.appendTo('.list')});
+
 window.library.fetch({ url: '/data.json' });
 
 
