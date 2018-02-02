@@ -15,11 +15,19 @@ const LinkModel = Backbone.Model.extend({
 
 //создаем вьюху
 const LinkView = Backbone.View.extend({
-  initialize: function() {
-      this.model.pathGenerator()
+  initialize: function(options) {
+      this.model.pathGenerator();
   },
   tagName: "li",
   className: "list-item",
+  events: {
+      //событие клик на элементе с классом .link, вызов метода navigate
+    "click .link": "navigate"
+  },
+    //метод, выполняющийся при ивенте "click"
+  navigate: function () {
+    console.log("/book/" + this.model.get("id"))
+  },
   render: function() {
    this.$el.html(template(this.model.attributes));
    return this;
@@ -48,8 +56,8 @@ var Router = Backbone.Router.extend({
 });
 
 new Router(); // создаем экземпляр роутера
-Backbone.history.start();  // Запускаем HTML5 History push
-// Backbone.history.start({pushState: true});       как это работает?
+// Backbone.history.start();  // Запускаем HTML5 History push
+Backbone.history.start({pushState: true});
 
 
 window.library = new Library();
