@@ -26,7 +26,9 @@ const LinkView = Backbone.View.extend({
   },
     //метод, выполняющийся при ивенте "click"
   navigate: function () {
-    console.log("/book/" + this.model.get("id"))
+    console.log("/book/" + this.model.get("id"));
+    router.navigate("book/" + this.model.get("id"), {trigger: true});
+
   },
   render: function() {
    this.$el.html(template(this.model.attributes));
@@ -43,20 +45,19 @@ const Library = Backbone.Collection.extend({
 let Router = Backbone.Router.extend({
     routes: {
         "":             "index",
-        "books/:id":    "books"
+        "book/:id":    "books"
     },
     index: function () {
        console.log("index")
     },
     books: function (id) {
-        // console.log("books/" + id);
-        // $(".list-item").hide();
-        // $(".book").append("Страница книжки " + id)
         alert("book")
     }
 });
 
-new Router(); // создаем экземпляр роутера
+let router = new Router(); // создаем экземпляр роутера
+
+
 // Backbone.history.start();  // Запускаем HTML5 History push
 Backbone.history.start({pushState: true});
 
