@@ -40,18 +40,19 @@ const Library = Backbone.Collection.extend({
 });
 
 
-var Router = Backbone.Router.extend({
+let Router = Backbone.Router.extend({
     routes: {
-        "": "index",
-        "books/:id": "books"
+        "":             "index",
+        "books/:id":    "books"
     },
     index: function () {
        console.log("index")
     },
     books: function (id) {
-        console.log("books/" + id);
-        $(".list-item").hide();
-        $(".book").append("Страница книжки " + id)
+        // console.log("books/" + id);
+        // $(".list-item").hide();
+        // $(".book").append("Страница книжки " + id)
+        alert("book")
     }
 });
 
@@ -60,8 +61,8 @@ new Router(); // создаем экземпляр роутера
 Backbone.history.start({pushState: true});
 
 
-window.library = new Library();
-window.library.on('add', (model) => {(new LinkView({model:model})).render().$el.appendTo('.list')});
-window.library.fetch({ url: '/data.json' });
+let library = new Library();    //создаем экземпляр коллекции
+library.on('add', (model) => {(new LinkView({model:model})).render().$el.appendTo('.list')});
+library.fetch({ url: '/data.json' });
 
 

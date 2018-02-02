@@ -12,5 +12,6 @@
   {"id": "11", "title": "Английский язык", "type": "рабочая тетрадь", "bookClass": "7 класс", "imgLink": "eng7"},
   {"id": "12", "title": "Математика", "type": "сборник задач", "bookClass": "6 класс", "imgLink": "math6"},
   {"id": "13", "title": "Физика", "type": "рабочая тетрадь", "bookClass": "9 класс", "imgLink": "fiz9"},
-  {"id": "14", "title": "Математика", "type": "книга для чтения", "bookClass": "6 класс", "imgLink": "math6"}
+  {"id": "14", "title": "Математика", "type": "книга для чтения", "bookClass": "6 класс", "imgLink": "math6"},
+  {"id": "15", "title": "Математика", "type": "книга для чтения", "bookClass": "6 класс", "imgLink": "math6"}
 ]
