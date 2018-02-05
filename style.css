@@ -1,3 +1,9 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+}
+
 p, h2,h3{
     margin: 0;
     padding: 5px;
@@ -10,6 +16,7 @@ p, h2,h3{
 }
 
 .list-item{
+    background: #d86eff1a;
     margin-top: 20px;
 }
 
