@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=cyrillic');
+body{
+    margin: 0;
+    padding: 0;
+    background: #feffd3;
+    font-family: "Roboto";
+    font-weight: 300;
+}
+
 p, h2,h3{
     margin: 0;
     padding: 5px;
@@ -25,7 +34,7 @@ p, h2,h3{
 .list li{
     box-sizing: border-box;
     width: 45%;
-    outline: 2px solid #ccc;
+    outline: 2px solid #737373;
     margin-bottom: 20px;
     padding: 10px;
     list-style: none;
