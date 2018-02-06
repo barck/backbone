@@ -78,7 +78,7 @@ let Router = Backbone.Router.extend({
        console.log("index")
     },
     post: function () {
-        alert(123);
+        // alert(123);
     }
 });
 
