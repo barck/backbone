@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './index.js'
+    app: './app/root.js'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -15,10 +15,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new CopyWebpackPlugin([
-      { from: './data.json', to: 'data.json' },
-      { from: './img', to: 'img' },
-      { from: './style.css', to: 'style.css' },
-      { from: './book.html', to: 'book.html' },
+      { from: './app/styles/style.css', to: 'style.css' },
+      { from: './app/templates/book.html', to: 'book.html' },
       { from: './favicon.ico', to: 'favicon.ico' }
     ]),
     new HtmlWebpackPlugin({

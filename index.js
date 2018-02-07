@@ -1,30 +1,7 @@
-import $ from 'jquery';
-import _ from 'underscore';
-import Backbone from 'backbone';
-import bookTemplate from "./app/templates/book.html";
 
-//создаем модель данных
-const LinkModel = Backbone.Model.extend();
 
-//создаем вьюху
-const LinkView = Backbone.View.extend({
-  tagName: "li",
-  className: "list-item",
-  events: {
-    "click .link": "navigate",
-    "click .remove": "removeModel"
-  },
-  navigate: function () {
-    router.navigate("post/" + this.model.get("id"), {trigger: true});
-  },
-  removeModel: function () {
-      this.remove()
-  },
-  render: function() {
-   this.$el.html(bookTemplate(this.model.attributes));
-   return this;
-  }
-});
+
+
 
 //создаем коллекцию экземпляров модели
 const Library = Backbone.Collection.extend({
@@ -61,10 +38,7 @@ const RootView = Backbone.View.extend({
     }
 });
 
-let rootView = new RootView();
 
-$('.app').html(rootView.render().$el)
-library.fetch({ url: 'https://jsonplaceholder.typicode.com/posts' });
 
 
 
