@@ -18,6 +18,22 @@ p, h2,h3{
     margin: 0 auto;
 }
 
+.navbar{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 24px;
+}
+.navbar li{
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.navbar li.active{
+    background: #ddd;
+}
+
 .list-item{
     margin-top: 20px;
     background: #ebf4ff;
