@@ -1,22 +1,35 @@
 import Backbone from "backbone";
+import $ from "jquery";
+import IndexView from "./views/pages/indexView";
+import PostView from "./views/pages/postsView";
+import AlbumsView from "./views/pages/albumsView";
+import UsersView from "./views/pages/usersView";
 
-let Router = Backbone.Router.extend({
+const Router = Backbone.Router.extend({
     routes: {
         "":             "index",
-        // посты
-        // пост
-        // пользователи
-        // пользователь
-        // альбомы
-        // альбом
+        "posts":        "posts",
+        "albums":       "albums",
+        "users":        "users"
     },
     index: function () {
-        console.log("index")
+        $(".app").html((new IndexView).render().el);
     },
-    post: function () {
-        // alert(123);
+    posts: function () {
+        $(".app").html((new PostView).render().el);
+    },
+    albums: function () {
+        $(".app").html((new AlbumsView).render().el);
+    },
+    users: function () {
+        $(".app").html((new UsersView).render().el);
     }
 });
 
-export default new Router();
+const router = new Router;
+
+export function navigate (href) {
+    router.navigate(href, {trigger: true})
+}
+
 

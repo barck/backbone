@@ -1,3 +1,7 @@
 <ul class="navbar">
-    <li>{{ title }}</li>
+{{#links}}
+    <li data-url="{{url}}">
+        {{title}}
+    </li>
+{{/links}}
 </ul>
