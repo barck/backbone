@@ -2,9 +2,10 @@
 body{
     margin: 0;
     padding: 0;
-    background: #feffd3;
+    background: #fff url("/bg.png") fixed;
     font-family: "Roboto";
     font-weight: 300;
+    color: #373737;
 }
 
 p, h2,h3{
@@ -12,10 +13,23 @@ p, h2,h3{
     padding: 5px;
 }
 
+.nav{
+    background: #ffab48;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.62);
+}
+
+.loading{
+    background-image: url("/loading.gif");
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    min-height: 400px;
+}
 
 .container{
     max-width: 1170px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .navbar{
@@ -23,13 +37,20 @@ p, h2,h3{
     padding: 0;
     list-style: none;
     font-size: 24px;
+    font-size: 0;
 }
 .navbar li{
     display: inline-block;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding:  30px;
+    border-right: 1px solid #ef9225;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 22px;
+    color: #fff;
 }
-
+.navbar li:hover{
+    background: #ffba69;
+}
 .navbar li.active{
     background: #ddd;
 }
@@ -39,7 +60,7 @@ p, h2,h3{
     background: #ebf4ff;
 }
 
-.list{
+.posts{
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -47,22 +68,44 @@ p, h2,h3{
     padding: 0;
     flex-wrap: wrap;
 }
-.list li{
+.post {
     box-sizing: border-box;
-    width: 45%;
-    outline: 2px solid #737373;
+    width: 30%;
+    position: relative;
+    border: 2px solid #ff8d00;
+    border-radius: 10px;
     margin-bottom: 20px;
     padding: 10px;
+    padding-top: 40px;
     list-style: none;
+    background: #ffb4396e;
+    box-shadow: 0 0 10px rgb(255, 165, 0);
+    cursor: pointer;
 }
-.list li div{
-    float: left;
+
+.post:hover{
+    box-shadow: 0 0 20px rgb(255, 165, 0);
+    background: #ffa615b0;
+    border-color: #ff6b03;
 }
+
+.post .post-id{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.post:hover .post-id{
+    font-size: 150%;
+}
+/*.post li div{*/
+    /*float: left;*/
+/*}*/
 img{
     float: right;
 }
 @media(max-width: 1000px){
-    .list li{
-        width: 50%;
+    .post {
+        width: 45%;
     }
 }

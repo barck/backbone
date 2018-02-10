@@ -4,6 +4,8 @@ import navLinkModel from "../models/NavLinkModel";
 import navTemplate from "../templates/nav.html";
 
 const NavLinkView = Backbone.View.extend({
+    tagName: "div",
+    className: "container",
     events: {
         "click .navbar li": "navigate"
     },
