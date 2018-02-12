@@ -12,6 +12,7 @@ const PhotoView = Backbone.View.extend({
     className: "photo",
     render: function () {
         this.$el.html(photoItemTemplate(this.model.attributes));
+        return this;
     }
 });
 
@@ -21,13 +22,16 @@ const PhotoCollection = Backbone.Collection.extend({
 
 const PhotosView = Backbone.View.extend({
     initialize(){
-
+        $(".app").addClass("loading");
         let photoCollection = new PhotoCollection();
         photoCollection.fetch({"url": "http://jsonplaceholder.typicode.com/photos"});
         photoCollection.on("add", function (model) {
-            // let photoView = new PhotoView({model: model});
+            $(".app").removeClass("loading");
+            let photoView = new PhotoView({model: model});
             // this.$el.find('.photos').append(photoView.render().el);
-            new PhotoView({model:model}).render().$el.appendTo('.photos');
+            // photoView.render().$el.append(".photos");
+            // this.$el.find('.photos').append(photoView.render().el);
+            photoView.render().$el.appendTo('.photos');
         })
     },
     render: function () {

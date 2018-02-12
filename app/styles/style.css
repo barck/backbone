@@ -60,7 +60,7 @@ p, h2,h3{
     background: #ebf4ff;
 }
 
-.posts{
+.posts, .photos{
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -68,7 +68,7 @@ p, h2,h3{
     padding: 0;
     flex-wrap: wrap;
 }
-.post {
+.post, .photo {
     box-sizing: border-box;
     width: 30%;
     position: relative;
@@ -83,19 +83,19 @@ p, h2,h3{
     cursor: pointer;
 }
 
-.post:hover{
+.post:hover, .photo:hover{
     box-shadow: 0 0 20px rgb(255, 165, 0);
     background: #ffa615b0;
     border-color: #ff6b03;
 }
 
-.post .post-id{
+.post .post-id, .photo .post-id{
     position: absolute;
     top: 0;
     left: 0;
 }
 
-.post:hover .post-id{
+.post:hover .post-id, .photo:hover .photo-id{
     font-size: 150%;
 }
 /*.post li div{*/
@@ -108,4 +108,9 @@ img{
     .post {
         width: 45%;
     }
+}
+
+.photos img{
+    width: 100px;
+    height: 100px;
 }
