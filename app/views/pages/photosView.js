@@ -28,10 +28,9 @@ const PhotosView = Backbone.View.extend({
         photoCollection.on("add", function (model) {
             $(".app").removeClass("loading");
             let photoView = new PhotoView({model: model});
+            photoView.render().$el.appendTo(".photos");
             // this.$el.find('.photos').append(photoView.render().el);
-            // photoView.render().$el.append(".photos");
-            // this.$el.find('.photos').append(photoView.render().el);
-            photoView.render().$el.appendTo('.photos');
+            // photoView.render().$el.appendTo('.photos');
         })
     },
     render: function () {

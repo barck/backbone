@@ -60,7 +60,7 @@ p, h2,h3{
     background: #ebf4ff;
 }
 
-.posts, .photos{
+.posts, .photos, .users{
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -83,6 +83,29 @@ p, h2,h3{
     cursor: pointer;
 }
 
+.user{
+    box-sizing: border-box;
+    width: 45%;
+    position: relative;
+    border: 2px solid #ff8d00;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    list-style: none;
+    background: #ffb4396e;
+    box-shadow: 0 0 10px rgb(255, 165, 0);
+    cursor: pointer;
+}
+
+.bottom-flex{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    flex-wrap: wrap;
+    background: #ffca76;
+}
 .post:hover, .photo:hover{
     box-shadow: 0 0 20px rgb(255, 165, 0);
     background: #ffa615b0;

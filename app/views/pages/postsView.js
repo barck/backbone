@@ -1,12 +1,15 @@
 import Backbone from "backbone";
-import postTemplate from "../../templates/pages/posts.html";
+import postsTemplate from "../../templates/pages/posts.html";
 import postItemTemplate from "../../templates/items/postItem.html";
 import $ from "jquery";
-
 
 const PostModel = Backbone.Model.extend({
     defaults: {
     }
+});
+
+const PostCollection = Backbone.Collection.extend({
+    model: PostModel
 });
 
 const PostView = Backbone.View.extend({
@@ -16,10 +19,6 @@ const PostView = Backbone.View.extend({
         this.$el.html(postItemTemplate(this.model.attributes));
         return this;
     }
-});
-
-const PostCollection = Backbone.Collection.extend({
-    model: PostModel
 });
 
 const PostsView = Backbone.View.extend({
@@ -40,7 +39,7 @@ const PostsView = Backbone.View.extend({
         // router.navigate("post/" + this.model.get("id"), {trigger: true});
     },
     render: function () {
-        this.$el.html(postTemplate());
+        this.$el.html(postsTemplate());
         return this;
     }
 });
