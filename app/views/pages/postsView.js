@@ -22,7 +22,6 @@ const PostCollection = Backbone.Collection.extend({
     model: PostModel
 });
 
-
 const PostsView = Backbone.View.extend({
     initialize(){
         $(".app").addClass("loading");
@@ -32,9 +31,13 @@ const PostsView = Backbone.View.extend({
             $(".app").removeClass("loading");
             let postView = new PostView({model: model});
             this.$el.find('.posts').append(postView.render().el);
-
         })
-        
+    },
+    events: {
+        "click .post": "postNavigate"
+    },
+    postNavigate: function() {
+        // router.navigate("post/" + this.model.get("id"), {trigger: true});
     },
     render: function () {
         this.$el.html(postTemplate());
