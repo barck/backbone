@@ -30,7 +30,7 @@ const PostsView = Backbone.View.extend({
             $(".app").removeClass("loading");
             let postView = new PostView({model: model});
             this.$el.find('.posts').append(postView.render().el);
-        })
+        });
     },
     events: {
         "click .post": "postNavigate"

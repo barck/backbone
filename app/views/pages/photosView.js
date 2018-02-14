@@ -24,7 +24,7 @@ const PhotosView = Backbone.View.extend({
     initialize(){
         $(".app").addClass("loading");
         let photoCollection = new PhotoCollection();
-        photoCollection.fetch({"url": "http://jsonplaceholder.typicode.com/photos"});
+        photoCollection.fetch({"url": "http://jsonplaceholder.typicode.com/photos?_limit=100"});
         photoCollection.on("add", function (model) {
             $(".app").removeClass("loading");
             let photoView = new PhotoView({model: model});
