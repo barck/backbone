@@ -14,9 +14,11 @@ const Router = Backbone.Router.extend({
     },
     index: function () {
         $(".app").html((new IndexView).render().el);
+
     },
     posts: function () {
         $(".app").html((new PostView).render().el);
+
     },
     photos: function () {
         $(".app").html((new PhotosView).render().el);
@@ -28,8 +30,6 @@ const Router = Backbone.Router.extend({
 
 const router = new Router;
 
-export function navigate (href) {
-    router.navigate(href, {trigger: true})
-}
+export default router
 
 
