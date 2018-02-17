@@ -31,7 +31,11 @@ module.exports = {
     module: {
         rules: [ {
             test: /\.html$/,
-            loader: 'mustache-loader'
+            loader: 'underscore-loader',
+            options: {
+                engine: 'var _ = { escape: require(\'lodash.escape\') };\n',
+                minifierOptions: { collapseInlineTagWhitespace: true }
+            }
         } ]
     }
 
