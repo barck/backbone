@@ -4,6 +4,7 @@ import IndexView from "./views/pages/indexView";
 import PostView from "./views/pages/postsView";
 import PhotosView from "./views/pages/photosView";
 import UsersView from "./views/pages/usersView";
+import navLinkModel from "./models/NavLinkModel";
 
 const Router = Backbone.Router.extend({
     routes: {
@@ -14,11 +15,9 @@ const Router = Backbone.Router.extend({
     },
     index: function () {
         $(".app").html((new IndexView).render().el);
-
     },
     posts: function () {
         $(".app").html((new PostView).render().el);
-
     },
     photos: function () {
         $(".app").html((new PhotosView).render().el);

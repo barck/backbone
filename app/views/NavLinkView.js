@@ -5,6 +5,15 @@ import navTemplate from "../templates/nav.html";
 import $ from "jquery"
 
 const NavLinkView = Backbone.View.extend({
+    initialize(){
+        router.on("route", (page) =>{
+            console.log(page);
+            navLinkModel.set("routeUrl", page);
+        });
+        // this.model.on("change", this.render, this);
+        // при изменении атрибутов модели перерисовать эту вьюху
+        this.listenTo(this.model, "change", this.render);
+    },
     tagName: "div",
     className: "container",
     events: {
@@ -12,13 +21,6 @@ const NavLinkView = Backbone.View.extend({
     },
     navigate: function (e) {
         router.navigate(e.currentTarget.dataset.url, {trigger: true});
-        // $(".navbar li").removeClass("active");
-        // e.currentTarget.classList.add("active");
-        // router.on("route", (page) =>{
-        //     console.log(e);
-        //     console.log(page);
-        //     // console.log("posts");
-        // });
     },
     render: function () {
         this.$el.html(navTemplate(this.model.attributes));
