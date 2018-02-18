@@ -10,8 +10,8 @@ const NavLinkView = Backbone.View.extend({
             console.log(page);
             navLinkModel.set("routeUrl", page);
         });
-        // this.model.on("change", this.render, this);
         // при изменении атрибутов модели перерисовать эту вьюху
+        // this.model.on("change", this.render, this);
         this.listenTo(this.model, "change", this.render);
     },
     tagName: "div",

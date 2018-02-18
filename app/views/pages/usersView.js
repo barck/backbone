@@ -25,9 +25,13 @@ const UsersView = Backbone.View.extend({
     initialize(){
         $(".app").addClass("loading");
         let userCollection = new UserCollection();
-        userCollection.fetch({"url": "http://jsonplaceholder.typicode.com/users"});
+        userCollection.fetch({
+            "url": "http://jsonplaceholder.typicode.com/users",
+            success: () => {
+                $(".app").removeClass("loading");
+            }
+        });
         userCollection.on("add", (model) => {
-            $(".app").removeClass("loading");
             let userView = new UserView({model:model});
             // userView.render().$el.appendTo(".users");
             this.$el.find('.users').append(userView.render().el);
