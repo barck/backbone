@@ -24,9 +24,14 @@ const PhotosView = Backbone.View.extend({
     initialize(){
         $(".app").addClass("loading");
         let photoCollection = new PhotoCollection();
-        photoCollection.fetch({"url": "http://jsonplaceholder.typicode.com/photos?_limit=100"});
+        // photoCollection.fetch({"url": "http://jsonplaceholder.typicode.com/photos?_limit=1000"});
+        photoCollection.fetch({
+            "url": "http://jsonplaceholder.typicode.com/photos?_limit=5000",
+            success: () => {
+                $(".app").removeClass("loading");
+            }
+        });
         photoCollection.on("add", function (model) {
-            $(".app").removeClass("loading");
             let photoView = new PhotoView({model: model});
             photoView.render().$el.appendTo(".photos");
             // this.$el.find('.photos').append(photoView.render().el);
