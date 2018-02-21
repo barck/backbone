@@ -7,12 +7,13 @@ import UsersView from "./views/pages/usersView";
 
 const Router = Backbone.Router.extend({
     routes: {
-        "":             "index",
+        "":             "", //пришлось так сделать, чтобы работал active class
         "posts":        "posts",
         "photos":       "photos",
-        "users":        "users"
+        "users":        "users",
+        "posts/:id":    "post"
     },
-    index: function () {
+    initialize: function () { //пришлось так сделать, чтобы работал active class
         $(".app").html((new IndexView).render().el);
     },
     posts: function () {
@@ -23,6 +24,9 @@ const Router = Backbone.Router.extend({
     },
     users: function () {
         $(".app").html((new UsersView).render().el);
+    },
+    post: function (id) {
+        $(".app").html("<h2>Тут должна быть вьюха для POST с ID: " + id + "</h2>");
     }
 });
 

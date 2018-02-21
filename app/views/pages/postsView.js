@@ -43,12 +43,6 @@ const PostsView = Backbone.View.extend({
             this.$el.find('.posts').append(postView.render().el);
         });
     },
-    events: {
-        "click .post": "postNavigate"
-    },
-    postNavigate: function() {
-        // router.navigate("post/" + this.model.get("id"), {trigger: true});
-    },
     render: function () {
         this.$el.html(postsTemplate());
         return this;
